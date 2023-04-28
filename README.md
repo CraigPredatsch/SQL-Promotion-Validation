@@ -1,2 +1,12 @@
 # SQL-Promotion-Validation
 Using SQL to sort through sales information spread across several databases to validate the effectiveness of a sales promotion within geographic regions.
+
+This project uses the sakila database built into MySQL Workbench.
+
+I am assuming that a promotion occurred from May 26, 2005 through May 27, 2005, and then I use SQL to pull together data from various tables within the sakila database (customer, rental, payment, address, city, and country tables) to determine which countries saw an increase in average spend per order after having taken part in the promotion.
+
+Included in this repo are two SQL files. "avg revenue all customers.sql" finds the average revenue for all customers whether they participated in the sales promotion from May 26 - May 27 or not. It then aggregates the total revenue by which country the customers are from - so it adds up all revenue earned from customers in the US, the UK, Canada, etc. "avg revenue promotion customers.sql" finds the average revenue only for customers that engaged in the sales promotion. This script adds up all revenue for these customers that engaged in the sales promotion over the lifetime of the dataset, and then aggregates these total revenue numbers by the country that each customer is from - just as the first script did.
+
+From here we can see which countries the promotion has been most effective in increasing the average money spent per order. The highest average spend in both scripts belonged to Nepal, but the average spend and total spend for customers from Nepal was exactly the same for the "promotion" group and the control group, so we know that all Nepalese customers participated in the promotion. We can't learn much from the effect on average spend here, but there are 3 other countries in the top 5 average spend that saw huge gains in average spend because of their customers that participated in the promotion.
+
+Customers from Ukraine in the "promotion" group spent approximately $0.50 more per order than the control group. Customers in the Canadaian "promotion" group spent approximately $0.465 more per order than the control group. Finally, customers in the Indonesian "promotion" group spent approximately $0.694 more per order than the control group. This data lets us see that this promotion was effective in these regions. Next an analysis of these countries and what the promotion offered can help us determine what future pricing and promotions will help further drive sales in these regions.
